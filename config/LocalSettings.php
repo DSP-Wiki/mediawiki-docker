@@ -610,7 +610,7 @@ $wgWikiSeoTryCleanAutoDescription = true;
 
 $wgObjectCaches['redis'] = array(
   'class'                => 'RedisBagOStuff',
-  'servers'              => $_ENV['WIKI_REDIS_SERVER'],
+  'servers'              => array("$_ENV['WIKI_REDIS_SERVER']"),
   // 'connectTimeout'    => 1,
   // 'persistent'        => false,
   // 'password'          => 'secret',
