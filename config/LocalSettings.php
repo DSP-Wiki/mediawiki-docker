@@ -242,7 +242,6 @@ wfLoadExtension( 'PageViewInfo' );
 wfLoadExtension( 'Plausible' );
 wfLoadExtension( 'ParserFunctions' );
 wfLoadExtension( 'PdfHandler' );
-wfLoadExtension( 'Popups' );
 wfLoadExtension( 'Renameuser' );
 wfLoadExtension( 'RevisionSlider' );
 wfLoadExtension( 'RSS' );
