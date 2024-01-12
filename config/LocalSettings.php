@@ -28,6 +28,8 @@ $wgCanonicalServer  = "{$_ENV['WIKI_SERVER_URL']}";
 $wgForceHTTPS = true;
 $wgMainPageIsDomainRoot = true;
 
+$wgFragmentMode = [ 'html5' ];
+
 $wgResourceBasePath = $wgScriptPath;
 
 $wgFavicon = "$wgResourceBasePath/images/favicon.ico";
@@ -227,7 +229,6 @@ wfLoadExtension( 'MultimediaViewer' );
 wfLoadExtension( 'MultiPurge' );
 wfLoadExtension( 'Nuke' );
 wfLoadExtension( 'OATHAuth' );
-#wfLoadExtension( 'WebAuthn' );
 wfLoadExtension( 'PageImages' );
 wfLoadExtension( 'PageViewInfo' );
 wfLoadExtension( 'Plausible' );
@@ -237,7 +238,7 @@ wfLoadExtension( 'ReplaceText' );
 wfLoadExtension( 'Scribunto' );
 wfLoadExtension( 'SecureLinkFixer' );
 wfLoadExtension( 'SpamBlacklist' );
-#wfLoadExtension( 'SmiteSpam' );
+wfLoadExtension( 'PictureHtmlSupport' );
 wfLoadExtension( 'SyntaxHighlight_GeSHi' );
 wfLoadExtension( 'TemplateData' );
 wfLoadExtension( 'TextExtracts' );
@@ -465,7 +466,7 @@ $wgImplicitGroups[] = 'emailconfirmed';
 #################
 #//*     DEV
 #################
-$wgShowExceptionDetails = false;
+$wgShowExceptionDetails = "{$_ENV['WIKI_DEV']:-'false'}";
 
 #################
 #//*    SPAM
