@@ -610,7 +610,7 @@ $wgWikiSeoTryCleanAutoDescription = true;
 
 $wgObjectCaches['redis'] = array(
   'class'                => 'RedisBagOStuff',
-  'servers'              => array("$_ENV['WIKI_REDIS_SERVER']"),
+  'servers'              => array('10.245.240.238'),
   // 'connectTimeout'    => 1,
   // 'persistent'        => false,
   // 'password'          => 'secret',
@@ -619,7 +619,7 @@ $wgObjectCaches['redis'] = array(
 $wgJobTypeConf['default'] = [
   'class' => 'JobQueueRedis',
   'order' => 'fifo',
-  'redisServer' => $_ENV['WIKI_REDIS_SERVER'],
+  'redisServer' => '10.245.240.238',
   'checkDelay' => true,
   'daemonized' => true
 ];
