@@ -48,8 +48,8 @@
                 "mediawiki/mobilefrontend": "1.39.0",
                 "mediawiki/cleanchanges": "1.39.0",
                 "mediawiki/antispam": "2.4",
-                "mediawiki/cargo": "1.39.0",
-                "mediawiki/translate": "1.39.0"
+                "mediawiki/cargo": "dev-REL1_39",
+                "mediawiki/translate": "dev-master"
         },
         "extra": {
                 "merge-plugin": {
@@ -66,23 +66,6 @@
                 }
         },
         "repositories": [
-                {
-                        "type": "package",
-                        "package": {
-                                "name": "mediawiki/cargo",
-                                "type": "mediawiki-extension",
-                                "version": "1.39.0",
-                                "dist": {
-                                        "url": "https://github.com/wikimedia/mediawiki-extensions-Cargo/archive/REL1_39.zip",
-                                        "type": "zip"
-                                },
-                                "source": {
-                                        "type": "git",
-                                        "url": "https://github.com/wikimedia/mediawiki-extensions-Cargo.git",
-                                        "reference": "REL1_39"
-                                }
-                        }
-                },
                 {
                         "type": "package",
                         "package": {
