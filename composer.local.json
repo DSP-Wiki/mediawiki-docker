@@ -50,7 +50,8 @@
                 "mediawiki/antispam": "2.4",
                 "mediawiki/cargo": "dev-REL1_39",
                 "mediawiki/translate": "dev-master",
-                "mediawiki/capiunto": "1.39.0"
+                "mediawiki/capiunto": "1.39.0",
+                "mediawiki/css": "1.39.0"
         },
         "extra": {
                 "merge-plugin": {
@@ -67,6 +68,23 @@
                 }
         },
         "repositories": [
+                {
+                        "type": "package",
+                        "package": {
+                                "name": "mediawiki/css",
+                                "type": "mediawiki-extension",
+                                "version": "1.39.0",
+                                "dist": {
+                                        "url": "https://github.com/wikimedia/mediawiki-extensions-CSS/archive/REL1_39.zip",
+                                        "type": "zip"
+                                },
+                                "source": {
+                                        "type": "git",
+                                        "url": "https://github.com/wikimedia/mediawiki-extensions-CSS.git",
+                                        "reference": "REL1_39"
+                                }
+                        }
+                },
                 {
                         "type": "package",
                         "package": {
