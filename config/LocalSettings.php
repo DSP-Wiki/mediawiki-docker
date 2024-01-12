@@ -466,7 +466,7 @@ $wgImplicitGroups[] = 'emailconfirmed';
 #################
 #//*     DEV
 #################
-$wgShowExceptionDetails = "{$_ENV['WIKI_DEV']:-'false'}";
+$wgShowExceptionDetails = $_ENV['WIKI_DEV'] ?? 'false';
 
 #################
 #//*    SPAM
