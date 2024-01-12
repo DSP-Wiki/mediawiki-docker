@@ -54,7 +54,17 @@ RUN set -eux; \
                             --no-interaction \
                             --no-scripts; \
 	\
-	mv /var/www/html/extensions /var/www/html/extensions; \
+	mv /var/www/mediawiki/extensions/Checkuser /var/www/mediawiki/extensions/CheckUser; \
+	mv /var/www/mediawiki/extensions/Dismissablesitenotice /var/www/mediawiki/extensions/DismissableSiteNotice; \
+	mv /var/www/mediawiki/extensions/Nativesvghandler /var/www/mediawiki/extensions/NativeSvgHandler; \
+	mv /var/www/mediawiki/extensions/Mediasearch /var/www/mediawiki/extensions/MediaSearch; \
+	mv /var/www/mediawiki/extensions/Revisionslider /var/www/mediawiki/extensions/RevisionSlider; \
+	mv /var/www/mediawiki/extensions/Rss /var/www/mediawiki/extensions/RSS; \
+	mv /var/www/mediawiki/extensions/Shortdescription /var/www/mediawiki/extensions/ShortDescription; \
+	mv /var/www/mediawiki/extensions/Webauthn /var/www/mediawiki/extensions/WebAuthn; \
+	mv /var/www/mediawiki/extensions/Twocolconflict /var/www/mediawiki/extensions/TwoColConflict; \
+	mv /var/www/mediawiki/extensions/Pageviewinfo /var/www/mediawiki/extensions/PageViewInfo; \
+	mv /var/www/mediawiki/extensions/Mobilefrontend /var/www/mediawiki/extensions/MobileFrontend; \
 	mv /var/www/html/skins/citizen /var/www/html/skins/Citizen; \
 	\
 
