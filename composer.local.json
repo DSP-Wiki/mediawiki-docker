@@ -46,7 +46,8 @@
                 "octfx/webp": "dev-develop",
                 "starcitizenwiki/picture-html-support": "dev-master",
                 "mediawiki/mobilefrontend": "1.39.0",
-                "mediawiki/cleanchanges": "1.39.0"
+                "mediawiki/cleanchanges": "1.39.0",
+                "mediawiki/antispam": "2.4"
         },
         "extra": {
                 "merge-plugin": {
@@ -77,6 +78,23 @@
                                         "type": "git",
                                         "url": "https://github.com/wikimedia/mediawiki-extensions-mobilefrontend.git",
                                         "reference": "REL1_39"
+                                }
+                        }
+                },
+                {
+                        "type": "package",
+                        "package": {
+                                "name": "mediawiki/antispam",
+                                "type": "mediawiki-extension",
+                                "version": "2.4",
+                                "dist": {
+                                        "url": "https://github.com/CleanTalk/mediawiki-antispam/archive/refs/tags/2.4.zip",
+                                        "type": "zip"
+                                },
+                                "source": {
+                                        "type": "git",
+                                        "url": "https://github.com/CleanTalk/mediawiki-antispam.git",
+                                        "reference": "2.4"
                                 }
                         }
                 },
