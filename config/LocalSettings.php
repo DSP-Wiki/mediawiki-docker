@@ -29,8 +29,9 @@ $wgForceHTTPS = true;
 $wgMainPageIsDomainRoot = true;
 
 $wgFragmentMode = [ 'html5' ];
-
+$wgEnableCanonicalServerLink = true;
 $wgResourceBasePath = $wgScriptPath;
+$wgPasswordDefault = 'argon2';
 
 $wgFavicon = "$wgResourceBasePath/images/favicon.ico";
 
@@ -106,8 +107,9 @@ $wgDBTableOptions = "ENGINE=InnoDB, DEFAULT CHARSET=binary";
 #//*    Cache 
 ##################
 
-$wgSessionCacheType = CACHE_DB;
-$wgMainCacheType = CACHE_NONE;
+$wgMainCacheType = 'redis';
+$wgSessionCacheType = 'redis';
+$wgMemCachedServers = array();
 
 ##################
 #//*    Footer 
@@ -207,23 +209,29 @@ wfLoadExtension( 'MobileFrontend' );
 ##################
 
 wfLoadExtension( 'AbuseFilter' );
+wfLoadExtension( 'AdvancedSearch' );
 wfLoadExtension( 'Antispam' );
 wfLoadExtension( 'Cargo' );
 wfLoadExtension( 'CategoryTree' );
 wfLoadExtension( 'Capiunto' );
 wfLoadExtension( 'Cite' );
 wfLoadExtension( 'CheckUser' );
-#wfLoadExtension( 'CiteThisPage' );
+wfLoadExtension( 'CiteThisPage' );
 wfLoadExtension( 'CodeEditor' );
 wfLoadExtension( 'CodeMirror' );
 wfLoadExtension( 'ConfirmEdit' );
 wfLoadExtension( 'CookieWarning' );
 wfLoadExtension( 'CSS' );
+wfLoadExtension( 'CommonsMetadata' );
+wfLoadExtension( 'Disambiguator' );
+wfLoadExtension( 'DismissableSiteNotice' );
 wfLoadExtension( 'Gadgets' );
 wfLoadExtension( 'Graph' );
 wfLoadExtension( 'ImageMap' );
 wfLoadExtension( 'InputBox' );
 wfLoadExtension( 'JsonConfig' );
+wfLoadExtension( 'Linter' );
+wfLoadExtension( 'Loops' );
 #wfLoadExtension( 'Math' );
 wfLoadExtension( 'MultimediaViewer' );
 wfLoadExtension( 'MultiPurge' );
@@ -234,19 +242,33 @@ wfLoadExtension( 'PageViewInfo' );
 wfLoadExtension( 'Plausible' );
 wfLoadExtension( 'ParserFunctions' );
 wfLoadExtension( 'PdfHandler' );
+wfLoadExtension( 'Popups' );
+wfLoadExtension( 'Renameuser' );
+wfLoadExtension( 'RevisionSlider' );
+wfLoadExtension( 'RSS' );
+wfLoadExtension( 'SandboxLink' );
 wfLoadExtension( 'ReplaceText' );
 wfLoadExtension( 'Scribunto' );
 wfLoadExtension( 'SecureLinkFixer' );
 wfLoadExtension( 'SpamBlacklist' );
 wfLoadExtension( 'PictureHtmlSupport' );
 wfLoadExtension( 'SyntaxHighlight_GeSHi' );
+wfLoadExtension( 'TabberNeue' );
 wfLoadExtension( 'TemplateData' );
+wfLoadExtension( 'TemplateStyles' );
+wfLoadExtension( 'TemplateStylesExtender' );
 wfLoadExtension( 'TextExtracts' );
+wfLoadExtension( 'Thanks' );
+wfLoadExtension( 'TwoColConflict' );
 wfLoadExtension( 'TitleBlacklist' );
 wfLoadExtension( 'VisualEditor' );
 wfLoadExtension( 'WikiEditor' );
 wfLoadExtension( 'TemplateStyles' );
 wfLoadExtension( 'UserMerge' );
+wfLoadExtension( 'UploadWizard' );
+wfLoadExtension( 'Variables' );
+wfLoadExtension( 'WikiSEO' );
+wfLoadExtension( 'WebP' );
 
 ##################
 #//*  Remove autoconfirmed
@@ -515,6 +537,8 @@ $wgCookieWarningEnabled = true;
 $wgCookieSecure = true;
 $wgCookieSameSite = 'Strict';
 
+$wgDismissableSiteNoticeForAnons = true;
+
 #################
 #//*    CSP
 #################
@@ -555,3 +579,50 @@ $wgJsonConfigs['Tabular.JsonConfig']['remote'] = [
 $wgJsonConfigs['Map.JsonConfig']['remote'] = [
         'url' => 'https://commons.wikimedia.org/w/api.php'
 ];
+
+# DynamicPageList3
+$wgDplSettings['recursiveTagParse'] = true;
+$wgDplSettings['allowUnlimitedResults'] = true;
+
+# PageImages
+$wgPageImagesNamespaces = array('DSP_Wiki');
+$wgPageImagesOpenGraphFallbackImage = "$wgResourceBasePath/images/DSP_Logo.png";
+
+$wgPopupsReferencePreviewsBetaFeature = false;
+
+$wgTwoColConflictBetaFeature = false;
+
+# WebP
+$wgWebPAutoFilter = true;
+$wgWebPConvertInJobQueue = true;
+$wgWebPEnableConvertOnUpload = true;
+$wgWebPCompressionQuality = 95;
+
+# WikiSEO
+$wgTwitterSiteHandle = 'DSPWiki';
+$wgWikiSeoDefaultLanguange = 'en-us';
+$wgWikiSeoEnableSocialImages = true;
+#Disable wgLogo as fallback image
+$wgWikiSeoDisableLogoFallbackImage = true;
+#TextExtracts description for SEO
+$wgWikiSeoEnableAutoDescription = true;
+$wgWikiSeoTryCleanAutoDescription = true;
+
+$wgObjectCaches['redis'] = array(
+  'class'                => 'RedisBagOStuff',
+  'servers'              => $_ENV['WIKI_REDIS_SERVER'],
+  // 'connectTimeout'    => 1,
+  // 'persistent'        => false,
+  // 'password'          => 'secret',
+  // 'automaticFailOver' => true,
+);
+$wgJobTypeConf['default'] = [
+  'class' => 'JobQueueRedis',
+  'order' => 'fifo',
+  'redisServer' => $_ENV['WIKI_REDIS_SERVER'],
+  'checkDelay' => true,
+  'daemonized' => true
+];
+$wgJobRunRate = 0;
+
+$wgNamespaceAliases['T'] = NS_TEMPLATE;
