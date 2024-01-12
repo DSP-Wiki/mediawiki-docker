@@ -70,6 +70,9 @@ RUN set -eux; \
 	rm /var/www/html/extensions/Antispam -r; \
 	mv /var/www/html/extensions/Temp /var/www/html/extensions/Antispam; \
 	mv /var/www/html/extensions/Css /var/www/html/extensions/CSS; \
+	mv /var/www/html/extensions/DiscordNotifications /var/www/html/extensions/DiscordRCFeed; \
+	mv /var/www/html/extensions/Usermerge /var/www/html/extensions/UserMerge; \
+	mv /var/www/html/extensions/Cldr /var/www/html/extensions/cldr; \
 	mv /var/www/html/skins/citizen /var/www/html/skins/Citizen; \
 	\
 	chown -R www-data:www-data /var/www/html

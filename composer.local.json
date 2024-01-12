@@ -49,7 +49,7 @@
                 "mediawiki/cleanchanges": "1.39.0",
                 "mediawiki/antispam": "2.4",
                 "mediawiki/cargo": "dev-REL1_39",
-                "mediawiki/translate": "dev-master",
+                "mediawiki/translate": "dev-REL1_39",
                 "mediawiki/capiunto": "1.39.0",
                 "mediawiki/css": "1.39.0",
                 "mediawiki/usermerge": "1.39.0"
