@@ -54,18 +54,18 @@ RUN set -eux; \
                             --no-interaction \
                             --no-scripts; \
 	\
-	mv /var/www/mediawiki/extensions/Checkuser /var/www/mediawiki/extensions/CheckUser; \
-	mv /var/www/mediawiki/extensions/Dismissablesitenotice /var/www/mediawiki/extensions/DismissableSiteNotice; \
-	mv /var/www/mediawiki/extensions/Nativesvghandler /var/www/mediawiki/extensions/NativeSvgHandler; \
-	mv /var/www/mediawiki/extensions/Mediasearch /var/www/mediawiki/extensions/MediaSearch; \
-	mv /var/www/mediawiki/extensions/Revisionslider /var/www/mediawiki/extensions/RevisionSlider; \
-	mv /var/www/mediawiki/extensions/Rss /var/www/mediawiki/extensions/RSS; \
-	mv /var/www/mediawiki/extensions/Shortdescription /var/www/mediawiki/extensions/ShortDescription; \
-	mv /var/www/mediawiki/extensions/Webauthn /var/www/mediawiki/extensions/WebAuthn; \
-	mv /var/www/mediawiki/extensions/Twocolconflict /var/www/mediawiki/extensions/TwoColConflict; \
-	mv /var/www/mediawiki/extensions/Pageviewinfo /var/www/mediawiki/extensions/PageViewInfo; \
-	mv /var/www/mediawiki/extensions/Mobilefrontend /var/www/mediawiki/extensions/MobileFrontend; \
-	mv /var/www/mediawiki/extensions/cleanchanges /var/www/mediawiki/extensions/CleanChanges; \
+	mv /var/www/html/extensions/Checkuser /var/www/html/extensions/CheckUser; \
+	mv /var/www/html/extensions/Dismissablesitenotice /var/www/html/extensions/DismissableSiteNotice; \
+	mv /var/www/html/extensions/Nativesvghandler /var/www/html/extensions/NativeSvgHandler; \
+	mv /var/www/html/extensions/Mediasearch /var/www/html/extensions/MediaSearch; \
+	mv /var/www/html/extensions/Revisionslider /var/www/html/extensions/RevisionSlider; \
+	mv /var/www/html/extensions/Rss /var/www/html/extensions/RSS; \
+	mv /var/www/html/extensions/Shortdescription /var/www/html/extensions/ShortDescription; \
+	mv /var/www/html/extensions/Webauthn /var/www/html/extensions/WebAuthn; \
+	mv /var/www/html/extensions/Twocolconflict /var/www/html/extensions/TwoColConflict; \
+	mv /var/www/html/extensions/Pageviewinfo /var/www/html/extensions/PageViewInfo; \
+	mv /var/www/html/extensions/Mobilefrontend /var/www/html/extensions/MobileFrontend; \
+	mv /var/www/html/extensions/cleanchanges /var/www/html/extensions/CleanChanges; \
 	mv /var/www/html/skins/citizen /var/www/html/skins/Citizen; \
 	\
 	chown -R www-data:www-data /var/www/html
