@@ -69,6 +69,7 @@ RUN set -eux; \
 	mv /var/www/html/extensions/Antispam/Antispam /var/www/html/extensions/Temp; \
 	rm /var/www/html/extensions/Antispam -r; \
 	mv /var/www/html/extensions/Temp /var/www/html/extensions/Antispam; \
+	mv /var/www/html/extensions/Css /var/www/html/extensions/CSS; \
 	mv /var/www/html/skins/citizen /var/www/html/skins/Citizen; \
 	\
 	chown -R www-data:www-data /var/www/html
