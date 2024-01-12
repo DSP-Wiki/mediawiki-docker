@@ -65,7 +65,7 @@ RUN set -eux; \
 	mv /var/www/html/extensions/Twocolconflict /var/www/html/extensions/TwoColConflict; \
 	mv /var/www/html/extensions/Pageviewinfo /var/www/html/extensions/PageViewInfo; \
 	mv /var/www/html/extensions/Mobilefrontend /var/www/html/extensions/MobileFrontend; \
-	mv /var/www/html/extensions/cleanchanges /var/www/html/extensions/CleanChanges; \
+	mv /var/www/html/extensions/Cleanchanges /var/www/html/extensions/CleanChanges; \
 	mv /var/www/html/skins/citizen /var/www/html/skins/Citizen; \
 	\
 	chown -R www-data:www-data /var/www/html
