@@ -67,7 +67,6 @@ RUN set -eux; \
 	mv /var/www/mediawiki/extensions/Mobilefrontend /var/www/mediawiki/extensions/MobileFrontend; \
 	mv /var/www/html/skins/citizen /var/www/html/skins/Citizen; \
 	\
-
 	chown -R www-data:www-data /var/www/html
 
 
