@@ -45,7 +45,8 @@
                 "mediawiki/pageviewinfo": "1.39.0",
                 "octfx/webp": "dev-develop",
                 "starcitizenwiki/picture-html-support": "dev-master",
-                "mediawiki/mobilefrontend": "1.39.0"
+                "mediawiki/mobilefrontend": "1.39.0",
+                "mediawiki/cleanchanges": "1.39.0"
         },
         "extra": {
                 "merge-plugin": {
@@ -75,6 +76,23 @@
                                 "source": {
                                         "type": "git",
                                         "url": "https://github.com/wikimedia/mediawiki-extensions-mobilefrontend.git",
+                                        "reference": "REL1_39"
+                                }
+                        }
+                },
+                {
+                        "type": "package",
+                        "package": {
+                                "name": "mediawiki/cleanchanges",
+                                "type": "mediawiki-extension",
+                                "version": "1.39.0",
+                                "dist": {
+                                        "url": "https://github.com/wikimedia/mediawiki-extensions-cleanchanges/archive/REL1_39.zip",
+                                        "type": "zip"
+                                },
+                                "source": {
+                                        "type": "git",
+                                        "url": "https://github.com/wikimedia/mediawiki-extensions-cleanchanges.git",
                                         "reference": "REL1_39"
                                 }
                         }
