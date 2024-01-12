@@ -64,7 +64,8 @@
                                 "extensions/OATHAuth/composer.json",
                                 "extensions/TemplateStyles/composer.json",
                                 "extensions/AWS/composer.json",
-                                "extensions/PageViewInfo/composer.json"
+                                "extensions/PageViewInfo/composer.json",
+                                "extensions/AbuseFilter/composer.json"
                         ]
                 }
         },
