@@ -10,23 +10,27 @@ $wgMetaNamespace = "DSP_Wiki";
 
 $wgScriptPath = "";
 $wgScriptExtension = ".php";
-#$wgArticlePath = "{$wgScript}/$1";
+$wgArticlePath = "/$1";
 $wgUsePathInfo = true;
 
-$actions = array( 'edit', 'watch', 'unwatch', 'delete','revert', 'rollback',
-  'protect', 'unprotect', 'markpatrolled', 'render', 'submit', 'history', 'purge', 'info' );
-
-foreach ( $actions as $action ) {
-  $wgActionPaths[$action] = "/$1/$action";
-}
-$wgActionPaths['view'] = "/$1";
-$wgArticlePath = $wgActionPaths['view'];
+#$actions = array( 'edit', 'watch', 'unwatch', 'delete','revert', 'rollback',
+#  'protect', 'unprotect', 'markpatrolled', 'render', 'submit', 'history', 'purge', 'info' );
+#foreach ( $actions as $action ) {
+#  $wgActionPaths[$action] = "/$1/$action";
+#}
+#$wgActionPaths['view'] = "/$1";
+#$wgArticlePath = $wgActionPaths['view'];
 
 $wgServer = "{$_ENV['WIKI_SERVER_URL']}";
 $wgCanonicalServer  = "{$_ENV['WIKI_SERVER_URL']}";
 
 $wgForceHTTPS = true;
 $wgMainPageIsDomainRoot = true;
+$wgSecureLogin = true;
+
+$wgMaxShellMemory = 2097152; // 2GB
+$wgMaxShellFileSize = 1048576; // 1GB
+$wgMaxShellTime = 180; // 3 Minutes
 
 $wgFragmentMode = [ 'html5' ];
 $wgEnableCanonicalServerLink = true;
@@ -46,6 +50,12 @@ $wgLogos = [
 		'height' => 15,
 	],
 ];
+
+$wgArticleCountMethod = 'any';
+
+$wgNamespacesWithSubpages[NS_MAIN] = true;
+$wgNamespacesWithSubpages[NS_TEMPLATE] = true;
+$wgNamespacesWithSubpages[NS_USER] = true;
 
 
 ##################
@@ -158,6 +168,7 @@ $wgHooks['SkinAddFooterLinks'][] = function ( $sk, $key, &$footerlinks ) {
 };
 
 $wgULSLanguageDetection = false;
+$wgULSIMEEnabled = false;
 
 ##################
 #//*     Images
@@ -171,9 +182,9 @@ $wgFileExtensions = array_merge( $wgFileExtensions,
     ); 
 $wgAllowTitlesInSVG = true;
 $wgSVGConverter = 'ImageMagick';
-$wgUseInstantCommons = true;  # do not allow InstantCommons
-$wgPingback = false;           # do not ping back to Mediawiki.org with stats.
-$wgShellLocale = "C.UTF-8";    # locale for shell commands
+$wgUseInstantCommons = true;
+$wgPingback = false;
+$wgShellLocale = "C.UTF-8";
 $wgGenerateThumbnailOnParse = true;
 $wgThumbnailEpoch = "20190815000000";
 $wgIgnoreImageErrors = true;
@@ -208,66 +219,7 @@ wfLoadExtension( 'MobileFrontend' );
 #//*   Enabled extensions
 ##################
 
-wfLoadExtension( 'AbuseFilter' );
-wfLoadExtension( 'AdvancedSearch' );
-wfLoadExtension( 'Antispam' );
-wfLoadExtension( 'Cargo' );
-wfLoadExtension( 'CategoryTree' );
-wfLoadExtension( 'Capiunto' );
-wfLoadExtension( 'Cite' );
-wfLoadExtension( 'CheckUser' );
-wfLoadExtension( 'CiteThisPage' );
-wfLoadExtension( 'CodeEditor' );
-wfLoadExtension( 'CodeMirror' );
-wfLoadExtension( 'ConfirmEdit' );
-wfLoadExtension( 'CookieWarning' );
-wfLoadExtension( 'CSS' );
-wfLoadExtension( 'CommonsMetadata' );
-wfLoadExtension( 'Disambiguator' );
-wfLoadExtension( 'DismissableSiteNotice' );
-wfLoadExtension( 'Gadgets' );
-wfLoadExtension( 'Graph' );
-wfLoadExtension( 'ImageMap' );
-wfLoadExtension( 'InputBox' );
-wfLoadExtension( 'JsonConfig' );
-wfLoadExtension( 'Linter' );
-wfLoadExtension( 'Loops' );
-#wfLoadExtension( 'Math' );
-wfLoadExtension( 'MultimediaViewer' );
-wfLoadExtension( 'MultiPurge' );
-wfLoadExtension( 'Nuke' );
-wfLoadExtension( 'OATHAuth' );
-wfLoadExtension( 'PageImages' );
-wfLoadExtension( 'PageViewInfo' );
-wfLoadExtension( 'Plausible' );
-wfLoadExtension( 'ParserFunctions' );
-wfLoadExtension( 'PdfHandler' );
-wfLoadExtension( 'Renameuser' );
-wfLoadExtension( 'RevisionSlider' );
-wfLoadExtension( 'RSS' );
-wfLoadExtension( 'SandboxLink' );
-wfLoadExtension( 'ReplaceText' );
-wfLoadExtension( 'Scribunto' );
-wfLoadExtension( 'SecureLinkFixer' );
-wfLoadExtension( 'SpamBlacklist' );
-wfLoadExtension( 'PictureHtmlSupport' );
-wfLoadExtension( 'SyntaxHighlight_GeSHi' );
-wfLoadExtension( 'TabberNeue' );
-wfLoadExtension( 'TemplateData' );
-wfLoadExtension( 'TemplateStyles' );
-wfLoadExtension( 'TemplateStylesExtender' );
-wfLoadExtension( 'TextExtracts' );
-wfLoadExtension( 'Thanks' );
-wfLoadExtension( 'TwoColConflict' );
-wfLoadExtension( 'TitleBlacklist' );
-wfLoadExtension( 'VisualEditor' );
-wfLoadExtension( 'WikiEditor' );
-wfLoadExtension( 'TemplateStyles' );
-wfLoadExtension( 'UserMerge' );
-wfLoadExtension( 'UploadWizard' );
-wfLoadExtension( 'Variables' );
-wfLoadExtension( 'WikiSEO' );
-wfLoadExtension( 'WebP' );
+wfLoadExtension( 'AbuseFilter', 'AdvancedSearch', 'Antispam', 'Cargo', 'CategoryTree', 'Capiunto', 'Cite', 'CheckUser', 'CiteThisPage', 'CodeEditor', 'CodeMirror', 'ConfirmEdit', 'CookieWarning', 'CSS', 'CommonsMetadata', 'Disambiguator', 'DismissableSiteNotice', 'Gadgets', 'Graph', 'ImageMap', 'InputBox', 'JsonConfig', 'Linter', 'Loops', 'MultimediaViewer', 'MultiPurge', 'Nuke', 'OATHAuth', 'PageImages', 'PageViewInfo', 'Plausible', 'ParserFunctions', 'PdfHandler', 'Renameuser', 'RevisionSlider', 'RSS', 'SandboxLink', 'ReplaceText', 'Scribunto', 'SecureLinkFixer', 'SpamBlacklist', 'PictureHtmlSupport', 'SyntaxHighlight_GeSHi', 'TabberNeue', 'TemplateData', 'TemplateStyles', 'TemplateStylesExtender', 'TextExtracts', 'Thanks', 'TwoColConflict', 'TitleBlacklist', 'VisualEditor', 'WikiEditor', 'TemplateStyles', 'UserMerge', 'UploadWizard', 'Variables', 'WikiSEO', 'WebP' );
 
 ##################
 #//*  Remove autoconfirmed
@@ -286,7 +238,7 @@ $wgImplicitGroups[] = 'autoconfirmed';
 $wgScribuntoDefaultEngine = 'luastandalone';
 $wgScribuntoUseGeSHi = true;
 $wgScribuntoUseCodeEditor = true;
-$wgTemplateDataUseGUI = false;
+$wgTemplateDataUseGUI = true;
 
 ##################
 #//*  Editors
@@ -299,6 +251,9 @@ $wgVisualEditorEnableWikitext = true;
 $wgVisualEditorEnableDiffPage = true;
 $wgVisualEditorUseSingleEditTab = true;
 $wgVisualEditorEnableVisualSectionEditing = true;
+$wgWikiEditorRealtimePreview = true;
+
+$wgCommonsMetadataForceRecalculate = true;
 
 ##################
 #//*   Plausible
@@ -336,13 +291,10 @@ $wgRCFeeds['discord']['omit_log_types'] = [
 ##################
 #//*   Translation
 ##################
-wfLoadExtension( 'Babel' );
-wfLoadExtension( 'cldr' );
-wfLoadExtension( 'CleanChanges' );
+wfLoadExtension( 'Babel', 'cldr', 'CleanChanges', 'Translate', 'UniversalLanguageSelector');
 $wgCCTrailerFilter = true;
 $wgCCUserFilter = false;
 $wgDefaultUserOptions['usenewrc'] = 1;
-wfLoadExtension( 'Translate' );
 $wgTranslateDocumentationLanguageCode = 'qqq';
 $wgTranslateNewsletterPreference = false;
 $wgTranslateFuzzyBotName = 'FuzzyBot';
@@ -350,7 +302,6 @@ $wgExtraLanguageNames['qqq'] = 'Message documentation'; # No linguistic content.
 $wgEnablePageTranslation = true;
 $wgPageTranslationNamespace = 1198;
 $wgTranslatePageTranslationULS = false;
-wfLoadExtension( 'UniversalLanguageSelector' );
 
 ##################
 #//*   TemplateStyles
@@ -364,6 +315,11 @@ $wgTemplateStylesAllowedUrls = [
     "css" => []
 ];
 $wgInvalidateCacheOnLocalSettingsChange = true;
+$wgTemplateStylesExtenderEnableUnscopingSupport = true;
+
+##################
+#//*      Name Spaces
+##################
 
 define("NS_MODDING", 3000);
 define("NS_MODDING_TALK", 3001);
@@ -372,12 +328,19 @@ $wgExtraNamespaces[NS_MODDING_TALK] = "Modding_Talk";
 $wgContentNamespaces[] = NS_MODDING;
 $wgNamespacesToBeSearchedDefault[NS_MODDING] = true;
 
+define("NS_PATCH_NOTES", 3005);
+define("NS_PATCH_TALK", 3006);
+$wgExtraNamespaces[NS_PATCH_NOTES] = "Patch_Notes";
+$wgExtraNamespaces[NS_PATCH_TALK] = "Patch_Notes_Talk";
+$wgContentNamespaces[] = NS_PATCH_NOTES;
+$wgNamespacesToBeSearchedDefault[NS_PATCH_TALK] = true;
 
 ##################
 #//*      Permissions
 ##################
 $wgUserMergeProtectedGroups = [];
-$wgNamespaceProtection[NS_TEMPLATE] = ['edittemplate'];
+$wgNamespaceProtection[NS_TEMPLATE] = ['templates'];
+$wgNamespaceProtection[NS_PATCH_NOTES] = ['patchnotes'];
 
 # all
 $wgGroupPermissions['*']['createaccount'] = true;
@@ -451,9 +414,10 @@ $wgGroupPermissions['emailconfirmed']['translate-groupreview'] = true;
 $wgGroupPermissions['emailconfirmed']['translate-import'] = true;
 $wgGroupPermissions['emailconfirmed']['skipcaptcha'] = false;
 
-#template
+#Trusted
 #$wgGroupPermissions['templates'] =$wgGroupPermissions['emailconfirmed'];
-$wgGroupPermissions['templates']['edittemplate'] =  true;
+$wgGroupPermissions['trusted']['patchnotes'] =  true;
+$wgGroupPermissions['trusted']['templates'] =  true;
 
 #bureaucrat
 $wgGroupPermissions['bureaucrat'] =$wgGroupPermissions['sysop'];
@@ -466,7 +430,7 @@ $wgGroupPermissions['bureaucrat']['checkuser-temporary-account'] = true;
 $wgImplicitGroups[] = 'bureaucrat';
 
 #sys op
-$wgGroupPermissions['sysop'] =$wgGroupPermissions['templates'];
+$wgGroupPermissions['sysop'] =$wgGroupPermissions['trusted'];
 $wgGroupPermissions['sysop']['checkuser-log'] = true;
 $wgGroupPermissions['sysop']['investigate'] = true;
 $wgGroupPermissions['sysop']['checkuser-temporary-account'] = true;
@@ -556,15 +520,15 @@ $wgCSPHeader = [
 #################
 $wgJsonConfigEnableLuaSupport = true;
 $wgJsonConfigModels['Tabular.JsonConfig'] = 'JsonConfig\JCTabularContent';
-$wgJsonConfigs['Tabular.JsonConfig'] = [ 
-        'namespace' => 486, 
+$wgJsonConfigs['Tabular.JsonConfig'] = [
+        'namespace' => 486,
         'nsName' => 'Data',
         'pattern' => '/.\.tab$/',
         'license' => 'CC0-1.0',
         'isLocal' => false,
 ];
 $wgJsonConfigModels['Map.JsonConfig'] = 'JsonConfig\JCMapDataContent';
-$wgJsonConfigs['Map.JsonConfig'] = [ 
+$wgJsonConfigs['Map.JsonConfig'] = [
         'namespace' => 486,
         'nsName' => 'Data',
         'pattern' => '/.\.map$/',
@@ -572,7 +536,7 @@ $wgJsonConfigs['Map.JsonConfig'] = [
         'isLocal' => false,
 ];
 $wgJsonConfigInterwikiPrefix = "commons";
-$wgJsonConfigs['Tabular.JsonConfig']['remote'] = [ 
+$wgJsonConfigs['Tabular.JsonConfig']['remote'] = [
         'url' => 'https://commons.wikimedia.org/w/api.php'
 ];
 $wgJsonConfigs['Map.JsonConfig']['remote'] = [
@@ -584,7 +548,7 @@ $wgDplSettings['recursiveTagParse'] = true;
 $wgDplSettings['allowUnlimitedResults'] = true;
 
 # PageImages
-$wgPageImagesNamespaces = array('DSP_Wiki');
+$wgPageImagesNamespaces = [ NS_MAIN, NS_PATCH_NOTES, NS_MODDING];
 $wgPageImagesOpenGraphFallbackImage = "$wgResourceBasePath/images/DSP_Logo.png";
 
 $wgPopupsReferencePreviewsBetaFeature = false;
@@ -625,3 +589,4 @@ $wgJobTypeConf['default'] = [
 $wgJobRunRate = 0;
 
 $wgNamespaceAliases['T'] = NS_TEMPLATE;
+$wgNamespaceAliases['PN','PATCH','U'] = NS_PATCH_NOTES;

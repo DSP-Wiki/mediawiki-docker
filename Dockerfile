@@ -1,4 +1,6 @@
-FROM antt1995/dsp-mediawiki:base
+FROM dspwiki/wiki-pre
+
+LABEL maintainer="antt1995@antts.uk"
 
 ENV MEDIAWIKI_MAJOR_VERSION 1.39
 ENV MEDIAWIKI_VERSION 1.39.6
@@ -76,6 +78,5 @@ RUN set -eux; \
 	mv /var/www/html/skins/citizen /var/www/html/skins/Citizen; \
 	\
 	chown -R www-data:www-data /var/www/html
-
-
+	
 CMD ["apache2-foreground"]
