@@ -68,8 +68,6 @@ $wgEnableUserEmail = true;
 $wgEmergencyContact = "admin@dsp-wiki.com";
 $wgPasswordSender = "no-reply@dsp-wiki.com";
 
-wfLoadExtension( 'Echo' );
-
 $wgAllowHTMLEmail = true;
 $wgEnotifUserTalk = false;
 $wgEnotifWatchlist = false;
@@ -213,13 +211,83 @@ $wgCitizenEnablePreferences = false;
 $wgCitizenShowPageTools = 'permission';
 $wgCitizenThemeColor = '#1D1D1D';
 $wgAllowSiteCSSOnRestrictedPages = true;
-wfLoadExtension( 'MobileFrontend' );
 
 ##################
 #//*   Enabled extensions
 ##################
 
-wfLoadExtension( 'AbuseFilter', 'AdvancedSearch', 'Antispam', 'Cargo', 'CategoryTree', 'Capiunto', 'Cite', 'CheckUser', 'CiteThisPage', 'CodeEditor', 'CodeMirror', 'ConfirmEdit', 'CookieWarning', 'CSS', 'CommonsMetadata', 'Disambiguator', 'DismissableSiteNotice', 'Gadgets', 'Graph', 'ImageMap', 'InputBox', 'JsonConfig', 'Linter', 'Loops', 'MultimediaViewer', 'MultiPurge', 'Nuke', 'OATHAuth', 'PageImages', 'PageViewInfo', 'Plausible', 'ParserFunctions', 'PdfHandler', 'Renameuser', 'RevisionSlider', 'RSS', 'SandboxLink', 'ReplaceText', 'Scribunto', 'SecureLinkFixer', 'SpamBlacklist', 'PictureHtmlSupport', 'SyntaxHighlight_GeSHi', 'TabberNeue', 'TemplateData', 'TemplateStyles', 'TemplateStylesExtender', 'TextExtracts', 'Thanks', 'TwoColConflict', 'TitleBlacklist', 'VisualEditor', 'WikiEditor', 'TemplateStyles', 'UserMerge', 'UploadWizard', 'Variables', 'WikiSEO', 'WebP' );
+$extensions = [
+    'ConfirmEdit',
+    'ConfirmEdit/ReCaptchaNoCaptcha',
+    'DiscordRCFeed',
+    'Babel',
+    'cldr',
+    'CleanChanges',
+    'Translate',
+    'UniversalLanguageSelector',
+    'AbuseFilter',
+    'AdvancedSearch',
+    'Antispam',
+    'Cargo',
+    'CategoryTree',
+    'Capiunto',
+    'Cite',
+    'CheckUser',
+    'CiteThisPage',
+    'CodeEditor',
+    'CodeMirror',
+    'CookieWarning',
+    'CSS',
+    'CommonsMetadata',
+    'Disambiguator',
+    'DismissableSiteNotice',
+    'Echo',
+    'Gadgets',
+    'Graph',
+    'ImageMap',
+    'InputBox',
+    'JsonConfig',
+    'Linter',
+    'Loops',
+    'MultimediaViewer',
+    'MobileFrontend',
+    'MultiPurge',
+    'Nuke',
+    'OATHAuth',
+    'PageImages',
+    'PageViewInfo',
+    'Plausible',
+    'ParserFunctions',
+    'PdfHandler',
+    'Renameuser',
+    'RevisionSlider',
+    'RSS',
+    'SandboxLink',
+    'ReplaceText',
+    'Scribunto',
+    'SecureLinkFixer',
+    'SpamBlacklist',
+    'PictureHtmlSupport',
+    'SyntaxHighlight_GeSHi',
+    'TabberNeue',
+    'TemplateData',
+    'TemplateStyles',
+    'TemplateStylesExtender',
+    'TextExtracts',
+    'Thanks',
+    'TwoColConflict',
+    'TitleBlacklist',
+    'VisualEditor',
+    'WikiEditor',
+    'UserMerge',
+    'UploadWizard',
+    'Variables',
+    'WikiSEO',
+    'WebP'
+];
+
+wfLoadExtensions($extensions);
+
 
 ##################
 #//*  Remove autoconfirmed
@@ -275,7 +343,7 @@ $wgPlausibleApiKey = "{$_ENV['WIKI_PLAUSIBLE_API']}";
 ##################
 #//*   Discord
 ##################
-wfLoadExtension( 'DiscordRCFeed' );
+
 $wgRCFeeds['discord'] = [
 	'url' => $_ENV['WIKI_DISCORD_URL'],
     'omit_talk' => true,
@@ -291,7 +359,7 @@ $wgRCFeeds['discord']['omit_log_types'] = [
 ##################
 #//*   Translation
 ##################
-wfLoadExtension( 'Babel', 'cldr', 'CleanChanges', 'Translate', 'UniversalLanguageSelector');
+
 $wgCCTrailerFilter = true;
 $wgCCUserFilter = false;
 $wgDefaultUserOptions['usenewrc'] = 1;
@@ -460,7 +528,6 @@ $wgCTAccessKey = "{$_ENV['WIKI_CT_KEY']}";
 $wgCTMinEditCount = 10;
 $wgCTShowLink = false;
 #$wgSpamRegex = ["/online-casino|casino|buy-viagra|adipex|phentermine|lidocaine|milf|adult-website\.com|display:none|overflow:\s*auto;\s*height:\s*[0-4]px;/i"];
-wfLoadExtensions([ 'ConfirmEdit', 'ConfirmEdit/ReCaptchaNoCaptcha' ]);
 $wgCaptchaClass = 'ReCaptchaNoCaptcha';
 $wgReCaptchaSiteKey = "{$_ENV['WIKI_CAP_KEY']}";
 $wgReCaptchaSecretKey = "{$_ENV['WIKI_CAP_SECRET']}";
