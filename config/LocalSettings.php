@@ -589,4 +589,6 @@ $wgJobTypeConf['default'] = [
 $wgJobRunRate = 0;
 
 $wgNamespaceAliases['T'] = NS_TEMPLATE;
-$wgNamespaceAliases['PN','PATCH','U'] = NS_PATCH_NOTES;
+$wgNamespaceAliases['PN'] = NS_PATCH_NOTES;
+$wgNamespaceAliases['PATCH'] = NS_PATCH_NOTES;
+$wgNamespaceAliases['U'] = NS_PATCH_NOTES;
