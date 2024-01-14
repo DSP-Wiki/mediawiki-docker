@@ -10,16 +10,16 @@ $wgMetaNamespace = "DSP_Wiki";
 
 $wgScriptPath = "";
 $wgScriptExtension = ".php";
-$wgArticlePath = "/$1";
+#$wgArticlePath = "/$1";
 $wgUsePathInfo = true;
 
-#$actions = array( 'edit', 'watch', 'unwatch', 'delete','revert', 'rollback',
-#  'protect', 'unprotect', 'markpatrolled', 'render', 'submit', 'history', 'purge', 'info' );
-#foreach ( $actions as $action ) {
-#  $wgActionPaths[$action] = "/$1/$action";
-#}
-#$wgActionPaths['view'] = "/$1";
-#$wgArticlePath = $wgActionPaths['view'];
+$actions = array( 'edit', 'watch', 'unwatch', 'delete','revert', 'rollback',
+  'protect', 'unprotect', 'markpatrolled', 'render', 'submit', 'history', 'purge', 'info' );
+foreach ( $actions as $action ) {
+  $wgActionPaths[$action] = "/$1/$action";
+}
+$wgActionPaths['view'] = "/$1";
+$wgArticlePath = $wgActionPaths['view'];
 
 $wgServer = "{$_ENV['WIKI_SERVER_URL']}";
 $wgCanonicalServer  = "{$_ENV['WIKI_SERVER_URL']}";

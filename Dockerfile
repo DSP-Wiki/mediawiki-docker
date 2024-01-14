@@ -76,7 +76,10 @@ RUN set -eux; \
 	mv /var/www/html/extensions/Usermerge /var/www/html/extensions/UserMerge; \
 	mv /var/www/html/extensions/Cldr /var/www/html/extensions/cldr; \
 	mv /var/www/html/skins/citizen /var/www/html/skins/Citizen; \
+	mv ./resources/*.png /var/www/html/skins/common/images/; \
+	mv ./resources/*.svg /var/www/html/skins/common/images/; \
+	mv ./resources/SAIRAM.ttf /var/www/html/skins/common/font/SAIRAM.ttf; \
 	\
 	chown -R www-data:www-data /var/www/html
-	
+
 CMD ["apache2-foreground"]
