@@ -227,7 +227,7 @@ wfLoadExtension( 'CleanChanges' );
 wfLoadExtension( 'CodeEditor' );
 wfLoadExtension( 'CodeMirror' );
 wfLoadExtension( 'CommonsMetadata' );
-wfLoadExtension( 'ConfirmEdit', 'ConfirmEdit/ReCaptchaNoCaptcha' );
+wfLoadExtensions([ 'ConfirmEdit', 'ConfirmEdit/ReCaptchaNoCaptcha' ]);
 wfLoadExtension( 'CookieWarning' );
 wfLoadExtension( 'CSS' );
 wfLoadExtension( 'Disambiguator' );
