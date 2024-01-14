@@ -126,7 +126,7 @@ $wgMemCachedServers = array();
 $wgFooterIcons = [
   "poweredby" => [
     "mediawiki" => [
-      "src" => "$wgScriptPath/images/badge-mediawiki.svg",
+      "src" => "$wgScriptPath/skins/common/images/badge-mediawiki.svg",
       "url" => "https://www.mediawiki.org",
       "alt" => "Powered by MediaWiki",
       "height" => "42",
@@ -135,7 +135,7 @@ $wgFooterIcons = [
   ],
   "copyright" => [
     "copyright" => [
-      "src" => "$wgScriptPath/images/badge-ccbysa.svg",
+      "src" => "$wgScriptPath/skins/common/images/badge-ccbysa.svg",
       "url" => "https://creativecommons.org/licenses/by-sa/4.0/",
       "alt" => "Creative Commons Attribution-ShareAlike",
       "height" => "50",
@@ -187,7 +187,6 @@ $wgGenerateThumbnailOnParse = true;
 $wgThumbnailEpoch = "20190815000000";
 $wgIgnoreImageErrors = true;
 $wgMaxImageArea = 6.4e7;
-$wgAllowExternalImagesFrom = ['https://cdn.akamai.steamstatic.com/', 'https://cdn.cloudflare.steamstatic.com'];
 $wgNativeImageLazyLoading = true;
 
 $wgLanguageCode = "en";
@@ -215,79 +214,85 @@ $wgAllowSiteCSSOnRestrictedPages = true;
 ##################
 #//*   Enabled extensions
 ##################
-
-$extensions = [
-    'ConfirmEdit',
-    'ConfirmEdit/ReCaptchaNoCaptcha',
-    'DiscordRCFeed',
-    'Babel',
-    'cldr',
-    'CleanChanges',
-    'Translate',
-    'UniversalLanguageSelector',
-    'AbuseFilter',
-    'AdvancedSearch',
-    'Antispam',
-    'Cargo',
-    'CategoryTree',
-    'Capiunto',
-    'Cite',
-    'CheckUser',
-    'CiteThisPage',
-    'CodeEditor',
-    'CodeMirror',
-    'CookieWarning',
-    'CSS',
-    'CommonsMetadata',
-    'Disambiguator',
-    'DismissableSiteNotice',
-    'Echo',
-    'Gadgets',
-    'Graph',
-    'ImageMap',
-    'InputBox',
-    'JsonConfig',
-    'Linter',
-    'Loops',
-    'MultimediaViewer',
-    'MobileFrontend',
-    'MultiPurge',
-    'Nuke',
-    'OATHAuth',
-    'PageImages',
-    'PageViewInfo',
-    'Plausible',
-    'ParserFunctions',
-    'PdfHandler',
-    'Renameuser',
-    'RevisionSlider',
-    'RSS',
-    'SandboxLink',
-    'ReplaceText',
-    'Scribunto',
-    'SecureLinkFixer',
-    'SpamBlacklist',
-    'PictureHtmlSupport',
-    'SyntaxHighlight_GeSHi',
-    'TabberNeue',
-    'TemplateData',
-    'TemplateStyles',
-    'TemplateStylesExtender',
-    'TextExtracts',
-    'Thanks',
-    'TwoColConflict',
-    'TitleBlacklist',
-    'VisualEditor',
-    'WikiEditor',
-    'UserMerge',
-    'UploadWizard',
-    'Variables',
-    'WikiSEO',
-    'WebP'
-];
-
-wfLoadExtensions($extensions);
-
+wfLoadExtension( 'AdvancedSearch' );
+wfLoadExtension( 'Babel' );
+wfLoadExtension( 'Capiunto' );
+wfLoadExtension( 'Cargo' );
+wfLoadExtension( 'CategoryTree' );
+wfLoadExtension( 'CheckUser' );
+wfLoadExtension( 'Cite' );
+wfLoadExtension( 'CiteThisPage' );
+wfLoadExtension( 'cldr' );
+wfLoadExtension( 'CleanChanges' );
+wfLoadExtension( 'CodeEditor' );
+wfLoadExtension( 'CodeMirror' );
+wfLoadExtension( 'CommonsMetadata' );
+wfLoadExtension( 'ConfirmEdit', 'ConfirmEdit/ReCaptchaNoCaptcha' );
+wfLoadExtension( 'CookieWarning' );
+wfLoadExtension( 'CSS' );
+wfLoadExtension( 'Disambiguator' );
+wfLoadExtension( 'DiscussionTools' );
+wfLoadExtension( 'DismissableSiteNotice' );
+wfLoadExtension( 'DynamicPageList3' );
+wfLoadExtension( 'Echo' );
+wfLoadExtension( 'EmbedVideo' );
+wfLoadExtension( 'Gadgets' );
+wfLoadExtension( 'Graph' );
+wfLoadExtension( 'ImageMap' );
+wfLoadExtension( 'InputBox' );
+wfLoadExtension( 'Interwiki' );
+wfLoadExtension( 'JsonConfig' );
+wfLoadExtension( 'Linter' );
+wfLoadExtension( 'Loops' );
+wfLoadExtension( 'Math' );
+wfLoadExtension( 'MediaSearch' );
+wfLoadExtension( 'MobileFrontend' );
+wfLoadExtension( 'MultimediaViewer' );
+wfLoadExtension( 'MultiPurge' );
+wfLoadExtension( 'NativeSvgHandler' );
+wfLoadExtension( 'Nuke' );
+wfLoadExtension( 'OATHAuth' );
+wfLoadExtension( 'PageImages' );
+wfLoadExtension( 'PageViewInfo' );
+wfLoadExtension( 'ParserFunctions' );
+wfLoadExtension( 'PdfHandler' );
+wfLoadExtension( 'PictureHtmlSupport' );
+wfLoadExtension( 'Plausible' );
+wfLoadExtension( 'Poem' );
+wfLoadExtension( 'Popups' );
+wfLoadExtension( 'RelatedArticles' );
+wfLoadExtension( 'Renameuser' );
+wfLoadExtension( 'ReplaceText' );
+wfLoadExtension( 'RevisionSlider' );
+wfLoadExtension( 'RSS' );
+wfLoadExtension( 'SandboxLink' );
+wfLoadExtension( 'Scribunto' );
+wfLoadExtension( 'SecureLinkFixer' );
+wfLoadExtension( 'ShortDescription' );
+wfLoadExtension( 'SpamBlacklist' );
+wfLoadExtension( 'SyntaxHighlight_GeSHi' );
+wfLoadExtension( 'TabberNeue' );
+wfLoadExtension( 'TemplateData' );
+wfLoadExtension( 'TemplateStyles' );
+wfLoadExtension( 'TemplateStylesExtender' );
+wfLoadExtension( 'TextExtracts' );
+wfLoadExtension( 'Thanks' );
+wfLoadExtension( 'Translate' );
+wfLoadExtension( 'TwoColConflict' );
+wfLoadExtension( 'UniversalLanguageSelector' );
+wfLoadExtension( 'UploadWizard' );
+wfLoadExtension( 'UserMerge' );
+wfLoadExtension( 'Variables' );
+wfLoadExtension( 'VisualEditor' );
+wfLoadExtension( 'WebAuthn' );
+wfLoadExtension( 'WebP' );
+wfLoadExtension( 'WikiEditor' );
+wfLoadExtension( 'WikiSEO' );
+wfLoadExtension( 'DiscordRCFeed' );
+wfLoadExtension(  'AbuseFilter' );
+wfLoadExtension(  'AdvancedSearch' );
+wfLoadExtension(  'Antispam' );
+wfLoadExtension(  'Capiunto' );
 
 ##################
 #//*  Remove autoconfirmed
@@ -401,8 +406,8 @@ define("NS_PATCH_TALK", 3006);
 $wgExtraNamespaces[NS_PATCH_NOTES] = "Patch_Notes";
 $wgExtraNamespaces[NS_PATCH_TALK] = "Patch_Notes_Talk";
 $wgContentNamespaces[] = NS_PATCH_NOTES;
-$wgNamespacesToBeSearchedDefault[NS_PATCH_TALK] = true;
-
+$wgNamespacesToBeSearchedDefault[NS_PATCH_NOTES] = true;
+$wgNamespacesToBeSearchedDefault[NS_PATCH_TALK] = false;
 ##################
 #//*      Permissions
 ##################
@@ -449,43 +454,43 @@ $wgGroupPermissions['user']['upload'] =  false;
 $wgGroupPermissions['user']['skipcaptcha'] = false;
 
 
-#emailconfirmed
-$wgGroupPermissions['emailconfirmed']['edit'] = true;
-$wgGroupPermissions['emailconfirmed']['createpage'] =  true;
-$wgGroupPermissions['emailconfirmed']['changetags'] =  true;
-$wgGroupPermissions['emailconfirmed']['applychangetags'] =  true;
-$wgGroupPermissions['emailconfirmed']['createtalk'] =  true;
-$wgGroupPermissions['emailconfirmed']['editcontentmodel'] =  true;
-$wgGroupPermissions['emailconfirmed']['move'] =  true;
-$wgGroupPermissions['emailconfirmed']['upload'] =  true;
-$wgGroupPermissions['emailconfirmed']['editmyusercss'] =  true;
-$wgGroupPermissions['emailconfirmed']['editmyuserjson'] =  true;
-$wgGroupPermissions['emailconfirmed']['editmyuserjs'] =  true;
-$wgGroupPermissions['emailconfirmed']['editmyuserjsredirect'] =  true;
-$wgGroupPermissions['emailconfirmed']['minoredit'] =  true;
-$wgGroupPermissions['emailconfirmed']['move-categorypages'] =  true;
-$wgGroupPermissions['emailconfirmed']['movefile'] =  true;
-$wgGroupPermissions['emailconfirmed']['move-subpages'] =  true;
-$wgGroupPermissions['emailconfirmed']['move-rootuserpages'] =  true;
-$wgGroupPermissions['emailconfirmed']['reupload-shared'] =  true;
-$wgGroupPermissions['emailconfirmed']['reupload'] =  true;
-$wgGroupPermissions['emailconfirmed']['sendemail'] =  true;
-$wgGroupPermissions['emailconfirmed']['editmyprivateinfo'] =  true;
-$wgGroupPermissions['emailconfirmed']['editmywatchlist'] =  true;
-$wgGroupPermissions['emailconfirmed']['viewmyprivateinfo'] =  true;
-$wgGroupPermissions['emailconfirmed']['viewmywatchlist'] =  true;
-$wgGroupPermissions['emailconfirmed']['upload'] =  true;
-$wgGroupPermissions['emailconfirmed']['writeapi'] = true;
-$wgGroupPermissions['emailconfirmed']['translate'] = true;
-$wgGroupPermissions['emailconfirmed']['translate-messagereview'] = true;
-$wgGroupPermissions['emailconfirmed']['translate-groupreview'] = true;
-$wgGroupPermissions['emailconfirmed']['translate-import'] = true;
-$wgGroupPermissions['emailconfirmed']['skipcaptcha'] = false;
+#verified
+$wgGroupPermissions['verified']['edit'] = true;
+$wgGroupPermissions['verified']['createpage'] =  true;
+$wgGroupPermissions['verified']['changetags'] =  true;
+$wgGroupPermissions['verified']['applychangetags'] =  true;
+$wgGroupPermissions['verified']['createtalk'] =  true;
+$wgGroupPermissions['verified']['editcontentmodel'] =  true;
+$wgGroupPermissions['verified']['upload'] =  true;
+$wgGroupPermissions['verified']['editmyusercss'] =  true;
+$wgGroupPermissions['verified']['editmyuserjson'] =  true;
+$wgGroupPermissions['verified']['editmyuserjs'] =  true;
+$wgGroupPermissions['verified']['editmyuserjsredirect'] =  true;
+$wgGroupPermissions['verified']['minoredit'] =  true;
+$wgGroupPermissions['verified']['reupload-shared'] =  true;
+$wgGroupPermissions['verified']['reupload'] =  true;
+$wgGroupPermissions['verified']['sendemail'] =  true;
+$wgGroupPermissions['verified']['editmyprivateinfo'] =  true;
+$wgGroupPermissions['verified']['editmywatchlist'] =  true;
+$wgGroupPermissions['verified']['viewmyprivateinfo'] =  true;
+$wgGroupPermissions['verified']['viewmywatchlist'] =  true;
+$wgGroupPermissions['verified']['upload'] =  true;
+$wgGroupPermissions['verified']['writeapi'] = true;
+$wgGroupPermissions['verified']['translate'] = true;
+$wgGroupPermissions['verified']['translate-messagereview'] = true;
+$wgGroupPermissions['verified']['translate-groupreview'] = true;
+$wgGroupPermissions['verified']['translate-import'] = true;
+$wgGroupPermissions['verified']['skipcaptcha'] = false;
 
 #Trusted
-#$wgGroupPermissions['templates'] =$wgGroupPermissions['emailconfirmed'];
+$wgGroupPermissions['trusted'] =$wgGroupPermissions['verified'];
 $wgGroupPermissions['trusted']['patchnotes'] =  true;
 $wgGroupPermissions['trusted']['templates'] =  true;
+$wgGroupPermissions['trusted']['move'] =  true;
+$wgGroupPermissions['trusted']['move-subpages'] =  true;
+$wgGroupPermissions['trusted']['move-rootuserpages'] =  true;
+$wgGroupPermissions['trusted']['move-categorypages'] =  true;
+$wgGroupPermissions['trusted']['movefile'] =  true;
 
 #bureaucrat
 $wgGroupPermissions['bureaucrat'] =$wgGroupPermissions['sysop'];
@@ -513,8 +518,7 @@ $wgGroupPermissions['sysop']['cleantalk-bypass'] = true;
 $wgGroupPermissions['bot']['cleantalk-bypass'] = true;
 $wgGroupPermissions['bot']['skipcaptcha'] = true;
 
-$wgAutopromote['emailconfirmed'] = APCOND_EMAILCONFIRMED;
-$wgImplicitGroups[] = 'emailconfirmed';
+$wgAutopromote['verified'] = APCOND_EMAILCONFIRMED;
 
 #################
 #//*     DEV
