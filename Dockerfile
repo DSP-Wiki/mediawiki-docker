@@ -29,6 +29,8 @@ RUN fetchDeps=" \
 	&& rm -rf /var/lib/apt/lists/*
 
 COPY ./config/LocalSettings.php /var/www/html/LocalSettings.php
+COPY ./resources/*.png ./resources/*.svg /var/www/html/skins/common/images/
+COPY ./resources/SAIRAM.ttf /var/www/html/skins/common/font/
 
 RUN cd /var/www/html/ && rm FAQ HISTORY SECURITY UPGRADE INSTALL CREDITS COPYING CODE_OF_CONDUCT.md README.md RELEASE-NOTES-1.39
 
@@ -76,9 +78,6 @@ RUN set -eux; \
 	mv /var/www/html/extensions/Usermerge /var/www/html/extensions/UserMerge; \
 	mv /var/www/html/extensions/Cldr /var/www/html/extensions/cldr; \
 	mv /var/www/html/skins/citizen /var/www/html/skins/Citizen; \
-	mv ./resources/*.png /var/www/html/skins/common/images/; \
-	mv ./resources/*.svg /var/www/html/skins/common/images/; \
-	mv ./resources/SAIRAM.ttf /var/www/html/skins/common/font/SAIRAM.ttf; \
 	\
 	chown -R www-data:www-data /var/www/html
 
