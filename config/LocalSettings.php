@@ -438,10 +438,10 @@ $wgGroupPermissions['user']['createtalk'] =  false;
 $wgGroupPermissions['user']['editcontentmodel'] =  false;
 $wgGroupPermissions['user']['move'] =  false;
 $wgGroupPermissions['user']['upload'] =  false;
-$wgGroupPermissions['user']['editmyusercss'] =  false;
-$wgGroupPermissions['user']['editmyuserjson'] =  false;
-$wgGroupPermissions['user']['editmyuserjs'] =  false;
-$wgGroupPermissions['user']['editmyuserjsredirect'] =  false;
+$wgGroupPermissions['user']['editmyusercss'] =  true;
+$wgGroupPermissions['user']['editmyuserjson'] =  true;
+$wgGroupPermissions['user']['editmyuserjs'] =  true;
+$wgGroupPermissions['user']['editmyuserjsredirect'] =  true;
 $wgGroupPermissions['user']['minoredit'] =  false;
 $wgGroupPermissions['user']['move-categorypages'] =  false;
 $wgGroupPermissions['user']['movefile'] =  false;
@@ -452,6 +452,11 @@ $wgGroupPermissions['user']['reupload'] =  false;
 $wgGroupPermissions['user']['sendemail'] =  false;
 $wgGroupPermissions['user']['upload'] =  false;
 $wgGroupPermissions['user']['skipcaptcha'] = false;
+$wgGroupPermissions['user']['editmyprivateinfo'] =  true;
+$wgGroupPermissions['user']['editmywatchlist'] =  true;
+$wgGroupPermissions['user']['viewmyprivateinfo'] =  true;
+$wgGroupPermissions['user']['viewmywatchlist'] =  true;
+$wgGroupPermissions['user']['editmyoptions'] =  true;
 
 
 #verified
@@ -461,12 +466,16 @@ $wgGroupPermissions['verified']['changetags'] =  true;
 $wgGroupPermissions['verified']['applychangetags'] =  true;
 $wgGroupPermissions['verified']['createtalk'] =  true;
 $wgGroupPermissions['verified']['editcontentmodel'] =  true;
+$wgGroupPermissions['verified']['move'] =  true;
 $wgGroupPermissions['verified']['upload'] =  true;
+$wgGroupPermissions['verified']['editmyoptions'] =  true;
 $wgGroupPermissions['verified']['editmyusercss'] =  true;
 $wgGroupPermissions['verified']['editmyuserjson'] =  true;
 $wgGroupPermissions['verified']['editmyuserjs'] =  true;
 $wgGroupPermissions['verified']['editmyuserjsredirect'] =  true;
 $wgGroupPermissions['verified']['minoredit'] =  true;
+$wgGroupPermissions['verified']['movefile'] =  true;
+$wgGroupPermissions['verified']['move-subpages'] =  true;
 $wgGroupPermissions['verified']['reupload-shared'] =  true;
 $wgGroupPermissions['verified']['reupload'] =  true;
 $wgGroupPermissions['verified']['sendemail'] =  true;
@@ -486,11 +495,8 @@ $wgGroupPermissions['verified']['skipcaptcha'] = false;
 $wgGroupPermissions['trusted'] =$wgGroupPermissions['verified'];
 $wgGroupPermissions['trusted']['patchnotes'] =  true;
 $wgGroupPermissions['trusted']['templates'] =  true;
-$wgGroupPermissions['trusted']['move'] =  true;
-$wgGroupPermissions['trusted']['move-subpages'] =  true;
 $wgGroupPermissions['trusted']['move-rootuserpages'] =  true;
 $wgGroupPermissions['trusted']['move-categorypages'] =  true;
-$wgGroupPermissions['trusted']['movefile'] =  true;
 
 #bureaucrat
 $wgGroupPermissions['bureaucrat'] =$wgGroupPermissions['sysop'];
