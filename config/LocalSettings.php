@@ -83,21 +83,23 @@ $wgSMTP = [
   'IDHost'    => 'email-smtp.eu-west-2.amazonaws.com',
   'port'      => 465,
   'auth'      => true,
-  'username'  => $_ENV['WIKI_S3_KEY'],
-  'password'  => $_ENV['WIKI_S3_SECRET']
+  'username'  => $_ENV['WIKI_AWS_KEY'],
+  'password'  => $_ENV['WIKI_AWS_SECRET']
 ];
 
-#$wgAWSCredentials = [
-#  'key' => $_ENV['WIKI_S3_KEY'],
-#  'secret' => $_ENV['WIKI_S3_SECRET'],
-#  'token' => false
-#];
-#$wgAWSBucketName = 'media.dsp-wiki.com';
-#$wgAWSBucketDomain = 'media.dsp-wiki.com';
-#$wgAWSRepoHashLevels = '2';
-#$wgAWSRepoDeletedHashLevels = '3';
-#$wgFileBackends['s3']['endpoint'] = 'https://eu-central-1.linodeobjects.com';
-#$wgAWSRegion = 'eu-central-1';
+if ($_ENV['WIKI_S3_MODE'] == 'TRUE') {
+  $wgAWSCredentials = [
+      'key'    => $_ENV['WIKI_S3_KEY'],
+      'secret' => $_ENV['WIKI_S3_SECRET'],
+      'token'  => false
+  ];
+  $wgAWSBucketName = $_ENV['WIKI_S3_BUCKET'];
+  $wgAWSBucketDomain = $_ENV['WIKI_S3_DOMAIN'];
+  $wgAWSRepoHashLevels = '2';
+  $wgAWSRepoDeletedHashLevels = '3';
+  $wgFileBackends['s3']['endpoint'] = $_ENV['WIKI_S3_ENDPOINT'];
+  $wgAWSRegion = $_ENV['WIKI_S3_REGION'];
+};
 
 ##################
 #//*    Database 
@@ -648,18 +650,18 @@ $wgWikiSeoDisableLogoFallbackImage = true;
 $wgWikiSeoEnableAutoDescription = true;
 $wgWikiSeoTryCleanAutoDescription = true;
 
-$wgObjectCaches['redis'] = array(
+$wgObjectCaches['redis'] = [
   'class'                => 'RedisBagOStuff',
-  'servers'              => array('10.245.240.238'),
+  'servers'              => [$_ENV['WIKI_REDIS_SERVER']],
   // 'connectTimeout'    => 1,
   // 'persistent'        => false,
   // 'password'          => 'secret',
   // 'automaticFailOver' => true,
-);
+];
 $wgJobTypeConf['default'] = [
   'class' => 'JobQueueRedis',
   'order' => 'fifo',
-  'redisServer' => '10.245.240.238',
+  'redisServer' => $_ENV['WIKI_REDIS_SERVER'],
   'checkDelay' => true,
   'daemonized' => true
 ];
