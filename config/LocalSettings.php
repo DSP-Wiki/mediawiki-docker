@@ -216,6 +216,7 @@ $wgAllowSiteCSSOnRestrictedPages = true;
 ##################
 #//*   Enabled extensions
 ##################
+if ($_ENV['WIKI_S3_MODE'] == 'TRUE') { wfLoadExtension( 'AWS' ); };
 wfLoadExtension( 'AdvancedSearch' );
 wfLoadExtension( 'Babel' );
 wfLoadExtension( 'Capiunto' );
