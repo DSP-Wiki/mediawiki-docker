@@ -93,12 +93,12 @@ if ($_ENV['WIKI_S3_MODE'] == 'TRUE') {
       'secret' => $_ENV['WIKI_S3_SECRET'],
       'token'  => false
   ];
-  $wgAWSBucketName = $_ENV['WIKI_S3_BUCKET'];
-  $wgAWSBucketDomain = $_ENV['WIKI_S3_DOMAIN'];
+  $wgAWSBucketName = "{$_ENV['WIKI_S3_BUCKET']}";
+  $wgAWSBucketDomain = "{$_ENV['WIKI_S3_DOMAIN']}";
   $wgAWSRepoHashLevels = '2';
   $wgAWSRepoDeletedHashLevels = '3';
-  $wgFileBackends['s3']['endpoint'] = $_ENV['WIKI_S3_ENDPOINT'];
-  $wgAWSRegion = $_ENV['WIKI_S3_REGION'];
+  $wgFileBackends['s3']['endpoint'] = "{$_ENV['WIKI_S3_ENDPOINT']}";
+  $wgAWSRegion = "{$_ENV['WIKI_S3_REGION']}";
 };
 
 ##################
@@ -652,7 +652,7 @@ $wgWikiSeoTryCleanAutoDescription = true;
 
 $wgObjectCaches['redis'] = [
   'class'                => 'RedisBagOStuff',
-  'servers'              => [$_ENV['WIKI_REDIS_SERVER']],
+  'servers'              => [ "{$_ENV['WIKI_REDIS_SERVER']}"],
   // 'connectTimeout'    => 1,
   // 'persistent'        => false,
   // 'password'          => 'secret',
