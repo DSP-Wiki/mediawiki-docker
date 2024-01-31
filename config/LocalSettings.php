@@ -173,7 +173,6 @@ $wgULSIMEEnabled = false;
 #     Images
 ##################
 $wgEnableUploads = true;
-$wgGenerateThumbnailOnParse = true;
 $wgUseImageMagick = true;
 $wgImageMagickConvertCommand = "/usr/bin/convert";
 $wgFileExtensions = array_merge( $wgFileExtensions,
@@ -184,7 +183,7 @@ $wgSVGConverter = 'ImageMagick';
 $wgUseInstantCommons = true;
 $wgPingback = false;
 $wgShellLocale = "C.UTF-8";
-$wgGenerateThumbnailOnParse = true;
+#$wgGenerateThumbnailOnParse = true;
 $wgThumbnailEpoch = "20190815000000";
 $wgIgnoreImageErrors = true;
 $wgMaxImageArea = 6.4e7;
