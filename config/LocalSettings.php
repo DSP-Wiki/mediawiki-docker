@@ -10,7 +10,6 @@ $wgMetaNamespace = "DSP_Wiki";
 
 $wgScriptPath = "";
 $wgScriptExtension = ".php";
-#$wgArticlePath = "/$1";
 $wgUsePathInfo = true;
 
 $actions = array( 'edit', 'watch', 'unwatch', 'delete','revert', 'rollback',
@@ -37,15 +36,15 @@ $wgEnableCanonicalServerLink = true;
 $wgResourceBasePath = $wgScriptPath;
 $wgPasswordDefault = 'argon2';
 
-$wgFavicon = "$wgResourceBasePath/images/favicon.ico";
+$wgFavicon = "$wgScriptPath/skins/common/images/favicon.ico";
 
 $wgLogos = [
-	'icon' => "$wgResourceBasePath/images/DSP_Logo.png",
+	'icon' => "$wgScriptPath/skins/common/images/DSP_Logo.png",
     'wordmark' => [
-		'src' => "$wgResourceBasePath/images/DSP_Logo.png",
+		'src' => "$wgScriptPath/skins/common/images/DSP_Logo.png",
     ],
     'tagline' => [
-		'src' => "$wgResourceBasePath/images/DSP_Logo.png",		// path to tagline version
+		'src' => "$wgScriptPath/skins/common/images/DSP_Logo.png",		// path to tagline version
 		'width' => 135,
 		'height' => 15,
 	],
@@ -59,7 +58,7 @@ $wgNamespacesWithSubpages[NS_USER] = true;
 
 
 ##################
-#//*    Email 
+#    Email 
 ##################
 
 $wgEnableEmail = true;
@@ -75,7 +74,7 @@ $wgEmailAuthentication = true;
 $wgEmailConfirmToEdit = true;
 
 ##################
-#//*    AWS 
+#    AWS 
 ##################
 
 $wgSMTP = [
@@ -102,7 +101,7 @@ if ($_ENV['WIKI_S3_MODE'] == 'TRUE') {
 };
 
 ##################
-#//*    Database 
+#    Database 
 ##################
 
 $wgDBtype = "mysql";
@@ -114,7 +113,7 @@ $wgDBprefix = "";
 $wgDBTableOptions = "ENGINE=InnoDB, DEFAULT CHARSET=binary";
 
 ##################
-#//*    Cache 
+#    Cache 
 ##################
 
 $wgMainCacheType = 'redis';
@@ -122,7 +121,7 @@ $wgSessionCacheType = 'redis';
 $wgMemCachedServers = array();
 
 ##################
-#//*    Footer 
+#    Footer 
 ##################
 
 $wgFooterIcons = [
@@ -171,7 +170,7 @@ $wgULSLanguageDetection = false;
 $wgULSIMEEnabled = false;
 
 ##################
-#//*     Images
+#     Images
 ##################
 $wgEnableUploads = true;
 $wgGenerateThumbnailOnParse = true;
@@ -196,11 +195,10 @@ $wgLocaltimezone = "GMT";
 $wgCacheDirectory = "$IP/cache";
 $wgSecretKey = "{$_ENV['WIKI_SECRET_KEY']}";
 $wgAuthenticationTokenVersion = "1";
-#$wgUpgradeKey = "{$_ENV['WIKI_UPGRADE_KEY']}";
 $wgDiff3 = "/usr/bin/diff3";
 
 ##################
-#//*   Theme
+#   Theme
 ##################
 
 $wgDefaultSkin = "Citizen";
@@ -214,7 +212,7 @@ $wgCitizenThemeColor = '#1D1D1D';
 $wgAllowSiteCSSOnRestrictedPages = true;
 
 ##################
-#//*   Enabled extensions
+#   Enabled extensions
 ##################
 if ($_ENV['WIKI_S3_MODE'] == 'TRUE') { wfLoadExtension( 'AWS' ); };
 wfLoadExtension( 'AdvancedSearch' );
@@ -298,7 +296,7 @@ wfLoadExtension(  'Antispam' );
 wfLoadExtension(  'Capiunto' );
 
 ##################
-#//*  Remove autoconfirmed
+#  Remove autoconfirmed
 ##################
 unset( $wgGroupPermissions['autoconfirmed'] );
 unset( $wgRevokePermissions['autoconfirmed'] );
@@ -309,7 +307,7 @@ unset( $wgGroupsRemoveFromSelf['autoconfirmed'] );
 $wgImplicitGroups[] = 'autoconfirmed';
 
 ##################
-#//*  Scribunto
+#  Scribunto
 ##################
 $wgScribuntoDefaultEngine = 'luastandalone';
 $wgScribuntoUseGeSHi = true;
@@ -317,7 +315,7 @@ $wgScribuntoUseCodeEditor = true;
 $wgTemplateDataUseGUI = true;
 
 ##################
-#//*  Editors
+#  Editors
 ##################
 $wgDefaultUserOptions['visualeditor-enable'] = 1;
 $wgDefaultUserOptions['visualeditor-editor'] = "visualeditor";
@@ -332,7 +330,7 @@ $wgWikiEditorRealtimePreview = true;
 $wgCommonsMetadataForceRecalculate = true;
 
 ##################
-#//*   Plausible
+#   Plausible
 ##################
 $wgPlausibleDomain = 'https://analytics.dsp-wiki.com';
 $wgPlausibleDomainKey = "{$_ENV['WIKI_PLAUSIBLE_DOMAIN']}";
@@ -349,7 +347,7 @@ $wgPlausibleTrackCitizenMenuLinks = true;
 $wgPlausibleApiKey = "{$_ENV['WIKI_PLAUSIBLE_API']}";
 
 ##################
-#//*   Discord
+#   Discord
 ##################
 
 $wgRCFeeds['discord'] = [
@@ -365,7 +363,7 @@ $wgRCFeeds['discord']['omit_log_types'] = [
 ];
 
 ##################
-#//*   Translation
+#   Translation
 ##################
 
 $wgCCTrailerFilter = true;
@@ -380,7 +378,7 @@ $wgPageTranslationNamespace = 1198;
 $wgTranslatePageTranslationULS = false;
 
 ##################
-#//*   TemplateStyles
+#   TemplateStyles
 ##################
 $wgTemplateStylesAllowedUrls = [
     "audio" => [""],
@@ -394,7 +392,7 @@ $wgInvalidateCacheOnLocalSettingsChange = true;
 $wgTemplateStylesExtenderEnableUnscopingSupport = true;
 
 ##################
-#//*      Name Spaces
+#      Name Spaces
 ##################
 
 define("NS_MODDING", 3000);
@@ -412,7 +410,7 @@ $wgContentNamespaces[] = NS_PATCH_NOTES;
 $wgNamespacesToBeSearchedDefault[NS_PATCH_NOTES] = true;
 $wgNamespacesToBeSearchedDefault[NS_PATCH_TALK] = false;
 ##################
-#//*      Permissions
+#      Permissions
 ##################
 $wgUserMergeProtectedGroups = [];
 $wgNamespaceProtection[NS_TEMPLATE] = ['templates'];
@@ -530,17 +528,16 @@ $wgGroupPermissions['bot']['skipcaptcha'] = true;
 $wgAutopromote['verified'] = APCOND_EMAILCONFIRMED;
 
 #################
-#//*     DEV
+#     DEV
 #################
 $wgShowExceptionDetails = $_ENV['WIKI_DEV'] ?? 'false';
 
 #################
-#//*    SPAM
+#    SPAM
 #################
 $wgCTAccessKey = "{$_ENV['WIKI_CT_KEY']}";
 $wgCTMinEditCount = 10;
 $wgCTShowLink = false;
-#$wgSpamRegex = ["/online-casino|casino|buy-viagra|adipex|phentermine|lidocaine|milf|adult-website\.com|display:none|overflow:\s*auto;\s*height:\s*[0-4]px;/i"];
 $wgCaptchaClass = 'ReCaptchaNoCaptcha';
 $wgReCaptchaSiteKey = "{$_ENV['WIKI_CAP_KEY']}";
 $wgReCaptchaSecretKey = "{$_ENV['WIKI_CAP_SECRET']}";
@@ -563,7 +560,7 @@ $wgDnsBlacklistUrls = array( 'xbl.spamhaus.org', 'dnsbl.tornevall.org' );
 $wgSmiteSpamIgnoreSmallPages = false;
 
 #################
-#//*    CDN
+#    CDN
 #################
 $wgUseCdn = true;
 $wgUsePrivateIPs = true;
@@ -574,7 +571,7 @@ $wgMultiPurgeCloudFlareZoneId = "{$_ENV['WIKI_CF_ID']}";
 $wgMultiPurgeCloudflareApiToken = "{$_ENV['WIKI_CF_API']}";
 
 #################
-#//*    Cookies
+#    Cookies
 #################
 $wgCookieWarningEnabled = true;
 $wgCookieSecure = true;
@@ -583,7 +580,7 @@ $wgCookieSameSite = 'Strict';
 $wgDismissableSiteNoticeForAnons = true;
 
 #################
-#//*    CSP
+#    CSP
 #################
 $wgReferrerPolicy = array('strict-origin-when-cross-origin', 'strict-origin');
 $wgCSPHeader = [
@@ -596,7 +593,7 @@ $wgCSPHeader = [
 ];
 
 #################
-#//*    Json
+#    Json
 #################
 $wgJsonConfigEnableLuaSupport = true;
 $wgJsonConfigModels['Tabular.JsonConfig'] = 'JsonConfig\JCTabularContent';
@@ -629,7 +626,7 @@ $wgDplSettings['allowUnlimitedResults'] = true;
 
 # PageImages
 $wgPageImagesNamespaces = [ NS_MAIN, NS_PATCH_NOTES, NS_MODDING];
-$wgPageImagesOpenGraphFallbackImage = "$wgResourceBasePath/images/DSP_Logo.png";
+$wgPageImagesOpenGraphFallbackImage = "$wgScriptPath/skins/common/images/DSP_Logo.png";
 
 $wgPopupsReferencePreviewsBetaFeature = false;
 

@@ -29,7 +29,7 @@ RUN fetchDeps=" \
 	&& rm -rf /var/lib/apt/lists/*
 
 COPY ./config/LocalSettings.php /var/www/html/LocalSettings.php
-COPY ./resources/*.png ./resources/*.svg /var/www/html/skins/common/images/
+COPY ./resources/*.png ./resources/*.svg ./resources/*.ico /var/www/html/skins/common/images/
 COPY ./resources/SAIRAM.ttf /var/www/html/skins/common/font/
 
 RUN cd /var/www/html/ && rm FAQ HISTORY SECURITY UPGRADE INSTALL CREDITS COPYING CODE_OF_CONDUCT.md README.md RELEASE-NOTES-1.39
