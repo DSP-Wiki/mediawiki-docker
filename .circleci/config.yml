@@ -9,7 +9,11 @@ executors:
           username: $DOCKER_LOGIN
           password: $DOCKER_PASSWORD
 jobs:
-  build:
+  build-dev:
+    filters:
+      branches:
+        only:
+          - dev
     executor: docker-publisher
     steps:
       - checkout
@@ -20,10 +24,28 @@ jobs:
             echo $DOCKER_PASSWORD | docker login -u $DOCKER_LOGIN --password-stdin
             docker build . -t $IMAGE_NAME:1.39-dev
             docker push $IMAGE_NAME:1.39-dev
+  build-main:
+    filters:
+      branches:
+        only:
+          - main
+    executor: docker-publisher
+    steps:
+      - checkout
+      - setup_remote_docker
+      - run:
+          name: Build Docker image & Publish
+          command: |
+            echo $DOCKER_PASSWORD | docker login -u $DOCKER_LOGIN --password-stdin
+            docker build . -t $IMAGE_NAME:1.39
+            docker push $IMAGE_NAME:1.39
 
 workflows:
-  build-dev:
+  build:
     jobs:
-      - build:
+      - build-dev:
+          context:
+            - DOCKER
+      - build-main:
           context:
             - DOCKER
