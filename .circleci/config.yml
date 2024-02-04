@@ -10,10 +10,6 @@ executors:
           password: $DOCKER_PASSWORD
 jobs:
   build-dev:
-    filters:
-      branches:
-        only:
-          - dev
     executor: docker-publisher
     steps:
       - checkout
@@ -25,10 +21,6 @@ jobs:
             docker build . -t $IMAGE_NAME:1.39-dev
             docker push $IMAGE_NAME:1.39-dev
   build-main:
-    filters:
-      branches:
-        only:
-          - main
     executor: docker-publisher
     steps:
       - checkout
@@ -44,8 +36,16 @@ workflows:
   build:
     jobs:
       - build-dev:
+          filters:
+            branches:
+              only:
+                - dev
           context:
             - DOCKER
       - build-main:
+              filters:
+                branches:
+                  only:
+                    - main
           context:
             - DOCKER
