@@ -39,12 +39,12 @@ $wgPasswordDefault = 'argon2';
 $wgFavicon = "$wgScriptPath/skins/common/images/favicon.ico";
 
 $wgLogos = [
-	'icon' => "$wgScriptPath/skins/common/images/DSP_Logo.png",
+	'icon' => "$wgScriptPath/skins/common/images/DSP_Logo.svg",
     'wordmark' => [
-		'src' => "$wgScriptPath/skins/common/images/DSP_Logo.png",
+		'src' => "$wgScriptPath/skins/common/images/DSP_Logo.svg",
     ],
     'tagline' => [
-		'src' => "$wgScriptPath/skins/common/images/DSP_Logo.png",		// path to tagline version
+		'src' => "$wgScriptPath/skins/common/images/DSP_Logo.svg",		// path to tagline version
 		'width' => 135,
 		'height' => 15,
 	],
@@ -195,6 +195,19 @@ $wgCacheDirectory = "$IP/cache";
 $wgSecretKey = "{$_ENV['WIKI_SECRET_KEY']}";
 $wgAuthenticationTokenVersion = "1";
 $wgDiff3 = "/usr/bin/diff3";
+
+$wgUploadWizardConfig = [
+	'licensing' => [
+		'ownWorkDefault' => 'own',
+		'ownWork' => [
+			'type' => 'or',
+			'template' => 'licensing', // this adds a link to Template:Licensing to the file info page
+			'licenses' => [
+				'generic',
+			],
+		],
+	],
+];
 
 ##################
 #   Theme
