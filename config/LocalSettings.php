@@ -36,15 +36,15 @@ $wgEnableCanonicalServerLink = true;
 $wgResourceBasePath = $wgScriptPath;
 $wgPasswordDefault = 'argon2';
 
-$wgFavicon = "$wgScriptPath/skins/common/images/favicon.ico";
+$wgFavicon = "https://media.dsp-wiki.com/favicon.ico";
 
 $wgLogos = [
-	'icon' => "$wgScriptPath/skins/common/images/DSP_Logo.svg",
+	'icon' => "https://media.dsp-wiki.com/DSP-Logo.svg",
     'wordmark' => [
-		'src' => "$wgScriptPath/skins/common/images/DSP_Logo.svg",
+		'src' => "https://media.dsp-wiki.com/DSP-Logo.svg",
     ],
     'tagline' => [
-		'src' => "$wgScriptPath/skins/common/images/DSP_Logo.svg",		// path to tagline version
+		'src' => "https://media.dsp-wiki.com/DSP-Logo.svg",		// path to tagline version
 		'width' => 135,
 		'height' => 15,
 	],
@@ -638,7 +638,7 @@ $wgDplSettings['allowUnlimitedResults'] = true;
 
 # PageImages
 $wgPageImagesNamespaces = [ NS_MAIN, NS_PATCH_NOTES, NS_MODDING];
-$wgPageImagesOpenGraphFallbackImage = "$wgScriptPath/skins/common/images/DSP_Logo.png";
+$wgPageImagesOpenGraphFallbackImage = "https://media.dsp-wiki.com/DSP-Logo.svg";
 
 $wgPopupsReferencePreviewsBetaFeature = false;
 
