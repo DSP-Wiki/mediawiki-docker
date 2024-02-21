@@ -31,7 +31,7 @@ RUN fetchDeps=" \
 COPY ./config/LocalSettings.php /var/www/html/LocalSettings.php
 COPY ./resources/*.png ./resources/*.svg ./resources/*.ico /var/www/html/skins/common/images/
 COPY ./resources/SAIRAM.ttf /var/www/html/skins/common/font/
-
+COPY ./resources/AgencyGothicCT-Light.ttf ./resources/AgencyGothicCT-Light.woff ./resources/AgencyGothicCT-Light.woff2 /var/www/html/skins/common/font/
 RUN cd /var/www/html/ && rm FAQ HISTORY SECURITY UPGRADE INSTALL CREDITS COPYING CODE_OF_CONDUCT.md README.md RELEASE-NOTES-1.39
 
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
