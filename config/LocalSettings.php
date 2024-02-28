@@ -68,8 +68,8 @@ $wgEmergencyContact = "admin@dsp-wiki.com";
 $wgPasswordSender = "no-reply@dsp-wiki.com";
 
 $wgAllowHTMLEmail = true;
-$wgEnotifUserTalk = false;
-$wgEnotifWatchlist = false;
+$wgEnotifUserTalk = true;
+$wgEnotifWatchlist = true;
 $wgEmailAuthentication = true;
 $wgEmailConfirmToEdit = true;
 
