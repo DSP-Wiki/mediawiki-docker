@@ -706,3 +706,4 @@ $wgDefaultRobotPolicy = 'noindex,nofollow';
 $wgNamespaceRobotPolicies = [
      NS_MAIN => 'index,follow'
 ];
+$wgAutoSitemap["filename"] = "/sitemap/sitemap.xml";

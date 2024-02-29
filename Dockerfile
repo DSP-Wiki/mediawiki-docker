@@ -80,7 +80,6 @@ RUN set -eux; \
 	mv /var/www/html/extensions/Cldr /var/www/html/extensions/cldr; \
 	mv /var/www/html/skins/citizen /var/www/html/skins/Citizen; \
 	\
-	touch /var/www/html/sitemap.xml; \
 	chown -R www-data:www-data /var/www/html
 
 CMD ["apache2-foreground"]
