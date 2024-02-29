@@ -702,3 +702,7 @@ $wgAutoSitemap["exclude_namespaces"] = [
   NS_CATEGORY_TALK
 ];
 $wgAutoSitemap["min_age"] = 3600;
+$wgDefaultRobotPolicy = 'noindex,nofollow';
+$wgNamespaceRobotPolicies = [
+     NS_MAIN => 'index,follow'
+];
