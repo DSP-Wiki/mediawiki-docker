@@ -694,7 +694,7 @@ $wgAutoSitemap["exclude_namespaces"] = [
   NS_USER,
   NS_USER_TALK,
   NS_PROJECT_TALK,
-  NS_IMAGE_TALK,
+  NS_FILE_TALK,
   NS_MEDIAWIKI,
   NS_MEDIAWIKI_TALK,
   NS_TEMPLATE,
