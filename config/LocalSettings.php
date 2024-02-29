@@ -686,9 +686,7 @@ $wgNamespaceAliases['U'] = NS_PATCH_NOTES;
 ###############
 #   Site Map
 ###############
-$wgAutoSitemap["notify"] = [
-  'https://www.google.com/webmasters/sitemaps/ping?sitemap=https://dsp-wiki.com/sitemap.xml',
-];
+$wgAutoSitemap["notify"] = [];
 $wgAutoSitemap["exclude_namespaces"] = [
   NS_TALK,
   NS_USER,
