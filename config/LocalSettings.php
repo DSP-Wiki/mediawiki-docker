@@ -227,6 +227,7 @@ $wgAllowSiteCSSOnRestrictedPages = true;
 #   Enabled extensions
 ##################
 if ($_ENV['WIKI_S3_MODE'] == 'TRUE') { wfLoadExtension( 'AWS' ); };
+wfLoadExtension( 'AutoSitemap' );
 wfLoadExtension( 'AdvancedSearch' );
 wfLoadExtension( 'Babel' );
 wfLoadExtension( 'Capiunto' );
@@ -681,3 +682,25 @@ $wgNamespaceAliases['T'] = NS_TEMPLATE;
 $wgNamespaceAliases['PN'] = NS_PATCH_NOTES;
 $wgNamespaceAliases['PATCH'] = NS_PATCH_NOTES;
 $wgNamespaceAliases['U'] = NS_PATCH_NOTES;
+
+###############
+#   Site Map
+###############
+$wgAutoSitemap["notify"] = [
+  'https://www.google.com/webmasters/sitemaps/ping?sitemap=https://dsp-wiki.com/sitemap.xml',
+];
+$wgAutoSitemap["exclude_namespaces"] = [
+  NS_TALK,
+  NS_USER,
+  NS_USER_TALK,
+  NS_PROJECT_TALK,
+  NS_IMAGE_TALK,
+  NS_MEDIAWIKI,
+  NS_MEDIAWIKI_TALK,
+  NS_TEMPLATE,
+  NS_TEMPLATE_TALK,
+  NS_HELP,
+  NS_HELP_TALK,
+  NS_CATEGORY_TALK
+];
+$wgAutoSitemap["min_age"] = 3600;
