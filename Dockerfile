@@ -58,6 +58,7 @@ RUN set -eux; \
                             --no-interaction \
                             --no-scripts; \
 	\
+	mv /var/www/html/extensions/Autositemap /var/www/html/extensions/AutoSitemap; \
 	mv /var/www/html/extensions/Checkuser /var/www/html/extensions/CheckUser; \
 	mv /var/www/html/extensions/Dismissablesitenotice /var/www/html/extensions/DismissableSiteNotice; \
 	mv /var/www/html/extensions/Nativesvghandler /var/www/html/extensions/NativeSvgHandler; \
