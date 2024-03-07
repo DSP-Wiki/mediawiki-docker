@@ -599,8 +599,8 @@ $wgReferrerPolicy = array('strict-origin-when-cross-origin', 'strict-origin');
 $wgCSPHeader = [
   'useNonces' => true,
   'unsafeFallback' => false,
-  'default-src' => ['\'self\'', 'https://www.recaptcha.net', 'https://analytics.dsp-wiki.com'],
-  'script-src' => [ '\'self\'', '\'sha256-fZolVpA0hfg4qTFqcgfmgUvHzo0qL28/odWGiD5Bc7U=\'', 'https://analytics.dsp-wiki.com'],
+  'default-src' => ['\'self\'', 'https://www.recaptcha.net', 'https://analytics.dsp-wiki.com', 'https://media.dsp-wiki.com'],
+  'script-src' => [ '\'self\'', '\'sha256-fZolVpA0hfg4qTFqcgfmgUvHzo0qL28/odWGiD5Bc7U=\'', '\'sha512-dnCV6aTL3HcJcvquc1wo9bY87OTBIbxFahEQxM9+Z27y+2vNEXkeZdaJYvax60Gnhh9irBO4dKwnwA45QZJD1w==\'', 'https://analytics.dsp-wiki.com'],
 	'style-src' => [ '\'self\''],
 	'object-src' => [ '\'none\'' ],
 ];
