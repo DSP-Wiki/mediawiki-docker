@@ -2,6 +2,8 @@ name: Wiki DEV
 
 on:
   workflow_dispatch:
+    branches:
+      - 'wiki-dev'
   push:
     branches:
       - 'wiki-dev'
