@@ -1,4 +1,4 @@
-FROM dspwiki/wiki-pre:dev
+FROM dspwiki/wiki-pre
 
 LABEL maintainer="antt1995@antts.uk"
 
