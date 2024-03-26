@@ -1,4 +1,4 @@
-FROM dspwiki/wiki-pre
+FROM dspwiki/wiki-pre:dev
 
 LABEL maintainer="antt1995@antts.uk"
 
@@ -80,4 +80,4 @@ RUN set -eux; \
 	\
 	chown -R www-data:www-data /var/www/html
 
-CMD ["apache2-foreground"]
+CMD ["php-fpm"]
